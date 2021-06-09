@@ -7,8 +7,8 @@ SRC_EXT= cpp
 
 #directories declaration
 ROOT_DIR=../..
-OBJ_DIR= $(ROOT_DIR)/obj
-BUILD_DIR= $(ROOT_DIR)/build
+OBJ_DIR= $(ROOT_DIR)/obj/unix
+BUILD_DIR= $(ROOT_DIR)/build/unix
 
 #output file declaration
 BUILD_FILE= $(BUILD_DIR)/PFramework
