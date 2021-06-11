@@ -20,8 +20,8 @@ MAIN_SRC_FILES=  $(shell find $(ROOT_DIR) -maxdepth 1 -type f -name *.$(SRC_EXT)
 MAIN_OBJ_FILES= $(patsubst $(ROOT_DIR)/%.$(SRC_EXT), $(OBJ_DIR)/%.$(OBJ_EXT), $(MAIN_SRC_FILES))
 
 #scripts directories declaration
-SCRIPTS_DIR= $(ROOT_DIR)/scripts
-SCRIPTS_OBJ_DIR= $(OBJ_DIR)/scripts
+SCRIPTS_DIR= $(ROOT_DIR)/scripts/c++
+SCRIPTS_OBJ_DIR= $(OBJ_DIR)/scripts/c++
 SCRIPTS_SRC_DIR= $(SCRIPTS_DIR)/src
 SCRIPTS_INC_DIR= $(SCRIPTS_DIR)/include
 
