@@ -9,9 +9,11 @@ SRC_EXT= cpp
 ROOT_DIR=../..
 OBJ_DIR= $(ROOT_DIR)/obj/unix
 BUILD_DIR= $(ROOT_DIR)/build/unix
+BIN_DIR= /usr/bin
 
 #output file declaration
-BUILD_FILE= $(BUILD_DIR)/PFramework
+BUILD_FILE_NAME= PFramework
+BUILD_FILE= $(BUILD_DIR)/$(BUILD_FILE_NAME)
 
 #main files finder
 MAIN_SRC_FILES=  $(shell find $(ROOT_DIR) -maxdepth 1 -type f -name *.$(SRC_EXT))
@@ -48,9 +50,6 @@ $(SCRIPTS_OBJ_FILES): $(SCRIPTS_OBJ_DIR)/%.$(OBJ_EXT): $(SCRIPTS_SRC_DIR)/%.$(SR
 
 #building the main objects files
 $(MAIN_OBJ_FILES): $(OBJ_DIR)/%.$(OBJ_EXT): $(ROOT_DIR)/%.$(SRC_EXT)
-	@$(ECHO) main src files: $(MAIN_SRC_FILES)
-	@$(ECHO) building $< to $@
-	@ls $(ROOT_DIR) | grep cpp
 	$(C_DIR) -p $(OBJ_DIR)
 	$(CXX) -c -o $@ $< $(COMP_FLAGS)
 
@@ -61,3 +60,11 @@ clean: cleanobj
 #cleaning only objects
 cleanobj:
 	rm -r -f $(OBJ_DIR)
+
+#install the output file
+install: all
+	cp $(BUILD_FILE) $(BIN_DIR)/$(BUILD_FILE_NAME)	
+
+#uninstall the program
+uninstall: 
+	rm -f $(BIN_DIR)/$(BUILD_FILE_NAME)
