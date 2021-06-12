@@ -7,9 +7,12 @@ import (
 )
 
 //export Hashmd5
-func Hashmd5(s string) string{
-	r := md5.Sum([]byte(s))
-	return string(r[:])
+func Hashmd5(s *C.char) *C.char{
+	ss := C.GoString(s)
+	r := md5.Sum([]byte(ss))
+	str := string(r[:])
+	rr := C.CString(str)
+	return rr
 }
 
 func main(){}

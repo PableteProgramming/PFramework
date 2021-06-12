@@ -69,7 +69,7 @@ extern "C" {
 #endif
 
 
-extern GoString Hashmd5(GoString p0);
+extern char* Hashmd5(char* p0);
 
 #ifdef __cplusplus
 }

@@ -1,9 +1,15 @@
 #include <hash.hpp>
 
+char* StringToCharArray(std::string s){
+	char* r= (char*)malloc(s.size());
+	for(int i=0; i<s.size();i++){
+		r[i]=s[i];
+	}
+	return r;
+}
+
 std::string md5(std::string s){
-	GoString message= Hashmd5(GoString(s.c_str()));
-	char* r= (char*)malloc(message.n+1);
-	memcpy(r,message.p,message.n);
-	r[message.n]= '\0';
-	return std::string(r);
+	char* sc= StringToCharArray(s);
+	char* rc= Hashmd5(sc);
+	return std::string(rc);	
 }

@@ -51,7 +51,7 @@ all: $(BUILD_FILE)
 #building the executable
 $(BUILD_FILE): $(GO_SO) $(SCRIPTS_OBJ_FILES) $(MAIN_OBJ_FILES)
 	$(C_DIR) -p $(BUILD_DIR)
-	cp $(GO_SO) $(OBJ_DIR)/$(GO_SO_NAME)
+	cp $(GO_SO) $(ROOT_DIR)/prj/unix/$(GO_SO_NAME)
 	$(CXX) -o $(BUILD_FILE) $(SCRIPTS_OBJ_FILES) $(MAIN_OBJ_FILES) ./$(GO_SO_NAME)
 	cp $(GO_SO) $(BUILD_DIR)/$(GO_SO_NAME)
 
