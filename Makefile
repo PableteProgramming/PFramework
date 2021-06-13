@@ -8,9 +8,9 @@ SRC_EXT= cpp
 GO_EXT= go
 
 #directories declaration
-ROOT_DIR=../..
-OBJ_DIR= $(ROOT_DIR)/obj/unix
-BUILD_DIR= $(ROOT_DIR)/build/unix
+ROOT_DIR=.
+OBJ_DIR= $(ROOT_DIR)/obj
+BUILD_DIR= $(ROOT_DIR)/build
 BIN_DIR= /usr/bin
 
 #main directories declaration
