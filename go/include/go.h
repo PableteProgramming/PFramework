@@ -71,6 +71,12 @@ extern "C" {
 
 extern char* Hashmd5(char* p0);
 
+extern char* Hashsha1(char* p0);
+
+extern char* Hashsha256(char* p0);
+
+extern char* Hashsha512(char* p0);
+
 #ifdef __cplusplus
 }
 #endif

@@ -2,6 +2,9 @@
 
 int main(){
 	std::cout<<"md5 hash of lul: "<<md5("lul")<<std::endl;
+	std::cout<<"sha1 hash of lul: "<<sha1("lul")<<std::endl;
+	std::cout<<"sha256 hash of lul: "<<sha256("lul")<<std::endl;
+	std::cout<<"sha512 hash of lul: "<<sha512("lul")<<std::endl;
 	while (true){
 		std::string message;
 		std::cout<<"PFramework > ";
