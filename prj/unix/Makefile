@@ -80,8 +80,12 @@ $(MAIN_OBJ_FILES): $(MAIN_OBJ_DIR)/%.$(OBJ_EXT): $(MAIN_SRC_DIR)/%.$(SRC_EXT)
 	$(CXX) -c -o $@ $< $(COMP_FLAGS)
 
 #clean all
-clean: cleanobj
+clean: cleango cleanobj
 	rm -r -f $(BUILD_DIR)
+
+#cleaning go.so
+cleango:
+	rm -f $(GO_SO_NAME) $(GO_INC_DIR)/$(GO_SO_NAME)
 
 #cleaning only objects
 cleanobj:
@@ -89,8 +93,10 @@ cleanobj:
 
 #install the output file
 install: all
-	cp $(BUILD_FILE) $(BIN_DIR)/$(BUILD_FILE_NAME)	
+	cp $(BUILD_FILE) $(BIN_DIR)/$(BUILD_FILE_NAME)
+	cp $(BUILD_DIR)/$(GO_SO_NAME) $(BIN_DIR)/$(GO_SO_NAME)	
 
 #uninstall the program
 uninstall: 
 	rm -f $(BIN_DIR)/$(BUILD_FILE_NAME)
+	rm -f $(BIN_DIR)/$(GO_SO_NAME)
