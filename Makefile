@@ -24,6 +24,7 @@ ROOT_DIR=.
 OBJ_DIR= $(ROOT_DIR)/obj
 BUILD_DIR= $(ROOT_DIR)/build
 BIN_DIR= /usr/bin
+HELP_DIR= $(ROOT_DIR)/help
 
 #main directories declaration
 MAIN_DIR= $(ROOT_DIR)/c++
@@ -67,6 +68,8 @@ COMP_FLAGS= -I$(SCRIPTS_INC_DIR) -I$(MAIN_INC_DIR) -I$(GO_INC_DIR)
 #the main target
 all: $(BUILD_FILE)
 	@$(ECHO) "$(green)$(bold)Output files: $(BUILD_FILE) and $(BUILD_DIR)/$(GO_SO_NAME)$(reset)\n"
+	@cp $(GO_SO) $(BUILD_DIR)/$(GO_SO_NAME)
+	@cp -r $(HELP_DIR) $(BUILD_DIR)
 
 #building the executable
 $(BUILD_FILE): $(GO_SO) $(SCRIPTS_OBJ_FILES) $(MAIN_OBJ_FILES)
@@ -74,8 +77,7 @@ $(BUILD_FILE): $(GO_SO) $(SCRIPTS_OBJ_FILES) $(MAIN_OBJ_FILES)
 	@$(C_DIR) -p $(BUILD_DIR)
 	@cp $(GO_SO) $(GO_SO_NAME)
 	@$(CXX) -o $(BUILD_FILE) $(SCRIPTS_OBJ_FILES) $(MAIN_OBJ_FILES) ./$(GO_SO_NAME)
-	@cp $(GO_SO) $(BUILD_DIR)/$(GO_SO_NAME)
-
+	
 #build go.so file
 $(GO_SO): $(GO_SRC_FILES)
 	@$(ECHO) "$(yellow)Building go sources files$(reset)\n"

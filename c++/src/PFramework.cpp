@@ -21,6 +21,9 @@ int main(){
 						params+= r[j]+" ";
 					}
 					bool rValue= scripts[i].first.second(params);
+					if(!rValue){
+						PrintFile(helpDir+"/"+scripts[i].second);	
+					}
 					break;
 				}
 			}
@@ -50,3 +53,5 @@ std::vector<std::string> Split(std::string s,char del){
 	}
 	return r;
 }
+
+
