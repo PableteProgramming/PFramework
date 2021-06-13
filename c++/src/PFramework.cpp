@@ -1,7 +1,7 @@
 #include <PFramework.hpp>
 
 int main(){
-	std::cout<<"md5 hash of lul: "<<Hashmd5("lul")<<std::endl;
+	std::cout<<"md5 hash of lul: "<<md5("lul")<<std::endl;
 	while (true){
 		std::string message;
 		std::cout<<"PFramework > ";

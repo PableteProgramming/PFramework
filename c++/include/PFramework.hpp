@@ -1,5 +1,5 @@
 #include <echo.hpp>
-#include <go.h>
+#include <hash.hpp>
 #include <vector>
 
 typedef bool (*funcPtr)(std::string);
