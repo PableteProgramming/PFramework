@@ -4,8 +4,5 @@
 #ignore obj dir
 /obj/
 
-#ignore Visual Studio configs
-.vs/
-
-#ignore shard libs
+#ignore shared libs
 *.so
