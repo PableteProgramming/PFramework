@@ -12,19 +12,23 @@ int main(){
 		if (message!=""){
 			std::vector<std::string> r=  Split(message,' ');
 			std::string cmd=r[0];
+			bool found=false;
 			for (int i=0; i< scripts.size();i++){
 				if(scripts[i].first.first==cmd){
+					found=true;
 					std::string params="";
 					for(int j=1 ;j<r.size();j++){
 						params+= r[j]+" ";
 					}
-					scripts[i].first.second(params);
+					bool rValue= scripts[i].first.second(params);
 					break;
 				}
 			}
+			if (!found){
+				std::cout<<"Command not found: "<<cmd<<std::endl;
+			}
 		}
 	}
-	echo("Hi");
 	return 0;
 }
 

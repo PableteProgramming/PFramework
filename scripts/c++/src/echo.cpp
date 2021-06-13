@@ -1,6 +1,9 @@
 #include <echo.hpp>
 
 bool echo(std::string s){
-	std::cout<<s<<std::endl;
-	return true;
+	if (s!=""){
+		std::cout<<s<<std::endl;
+		return true;
+	}
+	return false;
 }
