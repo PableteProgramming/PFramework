@@ -63,6 +63,8 @@ SCRIPTS_OBJ_FILES= $(patsubst $(SCRIPTS_SRC_DIR)/%.$(SRC_EXT), $(SCRIPTS_OBJ_DIR
 #compilation variables
 COMP_FLAGS= -I$(SCRIPTS_INC_DIR) -I$(MAIN_INC_DIR) -I$(GO_INC_DIR)
 
+.PHONY: all clean cleanobj cleango install uninstall rebuild
+
 ######################################################################################################
 
 #the main target
@@ -115,13 +117,17 @@ cleanobj:
 
 #install the output file
 install: all
+	@$(ECHO) "$(green)copying all the necessary files and directories to $(BIN_DIR)$(reset)\n"
 	@cp $(BUILD_FILE) $(BIN_DIR)/$(BUILD_FILE_NAME)
 	@cp $(BUILD_DIR)/$(GO_SO_NAME) $(BIN_DIR)/$(GO_SO_NAME)	
+	@cp -r $(HELP_DIR) $(BIN_DIR)
 
 #uninstall the program
-uninstall: 
+uninstall:
+	@$(ECHO) "$(red)Removing all the program files from $(BIN_DIR)$(reset)\n"
 	@rm -f $(BIN_DIR)/$(BUILD_FILE_NAME)
 	@rm -f $(BIN_DIR)/$(GO_SO_NAME)
+	@rm -r -f $(BIN_DIR)/$(HELP_DIR)
 
 #rebuild rule
 rebuild: clean all
