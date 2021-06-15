@@ -19,3 +19,31 @@ void PrintFile(std::string path){
 	std::string r = std::string(bytes.data(),fileSize);
 	std::cout<<r;
 }
+
+std::string EndStrip(std::string s){
+	bool charFound = false;
+	std::string r;
+	int index = -1;
+	r.clear();
+
+	for (int i = s.size() - 1; i >= 0; i--)
+	{
+		if (s[i] != '\n' && s[i] != '\t' && s[i] != ' ' && s[i] != '\t' && s[i] != '\v')
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index == -1)
+	{
+		return "";
+	}
+
+	for (int i = 0; i < index + 1; i++)
+	{
+		r += s[i];
+	}
+
+	return r;
+}

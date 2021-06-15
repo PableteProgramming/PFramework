@@ -6,3 +6,4 @@
 
 char* StringToCharArray(std::string);
 void PrintFile(std::string);
+std::string EndStrip(std::string);
