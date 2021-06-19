@@ -22,4 +22,5 @@ enum Color{
 };
 
 void SetColor(std::vector<Color>);
+void SetColor(Color);
 void ResetColors();

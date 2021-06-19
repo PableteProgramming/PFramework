@@ -1,19 +1,21 @@
 #include <ls.hpp>
 #include <PFramework.hpp>
+#include <termColor.hpp>
 
 bool ls(std::string p){
+	std::string dir;
 	if(p==""){
-		return false;
+		dir=".";
 	}
-	
-	std::vector<std::string> params= Split(p,' ');
+	else{
+		std::vector<std::string> params= Split(p,' ');
 
-	if(params.size()>1){
-		return false;
-	}
-	
-	std::string dir= params[0];
-	
+		if(params.size()>1){
+			return false;
+		}
+		
+		dir= params[0];
+	}	
 	struct dirent* d;
         DIR* dr;
         dr = opendir(dir.c_str());
@@ -24,7 +26,14 @@ bool ls(std::string p){
             {
                 if (std::string(d->d_name) != "." && std::string(d->d_name) != "..")
                 {
+			if(d->d_type==DT_DIR){
+				SetColor(ForeBlue);
+			}
+			else{
+				SetColor(ForeGreen);
+			}
 			std::cout<<d->d_name<<std::endl;
+			ResetColors();
                 }
             }
             closedir(dr);

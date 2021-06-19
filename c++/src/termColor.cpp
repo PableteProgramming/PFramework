@@ -11,6 +11,10 @@ void SetColor(std::vector<Color> c){
 	std::cout<<"\033["+r+"m";	
 }
 
+void SetColor(Color c){
+	std::cout<<"\033["+std::to_string(c)+"m";
+}
+
 void ResetColors(){
 	std::cout<<"\033[0m";
 }
