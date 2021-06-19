@@ -25,6 +25,7 @@ OBJ_DIR= $(ROOT_DIR)/obj
 BUILD_DIR= $(ROOT_DIR)/build
 BIN_DIR= /usr/bin
 HELP_DIR= $(ROOT_DIR)/help
+RES_DIR= $(ROOT_DIR)/resources
 
 #main directories declaration
 MAIN_DIR= $(ROOT_DIR)/c++
@@ -72,6 +73,7 @@ all: $(BUILD_FILE)
 	@$(ECHO) "$(green)$(bold)Output files: $(BUILD_FILE) and $(BUILD_DIR)/$(GO_SO_NAME)$(reset)\n"
 	@cp $(GO_SO) $(BUILD_DIR)/$(GO_SO_NAME)
 	@cp -r $(HELP_DIR) $(BUILD_DIR)
+	@cp -r $(RES_DIR) $(BUILD_DIR)
 
 #building the executable
 $(BUILD_FILE): $(GO_SO) $(SCRIPTS_OBJ_FILES) $(MAIN_OBJ_FILES)
@@ -121,12 +123,14 @@ install: all
 	@cp $(BUILD_FILE) $(BIN_DIR)/$(BUILD_FILE_NAME)
 	@cp $(BUILD_DIR)/$(GO_SO_NAME) $(BIN_DIR)/$(GO_SO_NAME)	
 	@cp -r $(HELP_DIR) $(BIN_DIR)
+	@cp -r $(RES_DIR) $(BUILD_DIR)
 
 #uninstall the program
 uninstall:
 	@$(ECHO) "$(red)Removing all the program files from $(BIN_DIR)$(reset)\n"
 	@rm -f $(BIN_DIR)/$(BUILD_FILE_NAME)
 	@rm -f $(BIN_DIR)/$(GO_SO_NAME)
+	@rm -r -f $(BIN_DIR)/$(HELP_DIR)
 	@rm -r -f $(BIN_DIR)/$(HELP_DIR)
 
 #rebuild rule
